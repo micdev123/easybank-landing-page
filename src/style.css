@@ -28,16 +28,33 @@
     font-family: var(--font-family);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--Very-Light-Gray);
     overflow-x: hidden;
 }
 
+#header {
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: red; */
+}
+
 .navigation {
     width: 100%;
     background-color: var(--White);
-    position: relative;
+    position: fixed;
+    top: 0;
     z-index: 3;
+    /* margin-bottom: 50rem; */
+}
+
+.when__scroll {
+    width: 100%;
+    box-shadow: 0 1rem 2rem rgba(50, 50, 50, 0.2);
 }
 
 .large__screen__nav {
@@ -47,6 +64,10 @@ body {
     justify-content: space-between;
     align-items: center;
     line-height: 4rem;
+}
+
+.small__screen__nav {
+    display: none;
 }
 
 .app__logo img {
@@ -102,6 +123,8 @@ a {
 /* Header Body */
 .header__body {
     width: 100%;
+    height: 100%;
+    margin-top: 4rem;
 }
 
 .__header__body__container {
@@ -143,6 +166,10 @@ a {
     z-index: 1;
 }
 
+.bg__intro__mobile {
+    display: none;
+}
+
 .image__mockups {
     width: 43rem;
     position: absolute;
@@ -160,7 +187,7 @@ a {
 .why__easybank {
     width: 100%;
     background-color: var(--Light-Grayish-Blue);
-    padding: 8.5rem 0;
+    padding: 7rem 0;
 }
 
 .easybank__container {
@@ -243,6 +270,7 @@ a {
     width: 15.5rem;
     height: 12rem;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .__article__img img {
@@ -298,7 +326,7 @@ a {
     padding: 3rem 0;
 }
 
-.left__footer {
+.left__footer, .__left__right {
     display: flex;
 }
 
@@ -320,10 +348,6 @@ a {
     font-size: 1.15rem;
 }
 
-
-.__left__right {
-    display: flex;
-}
 
 .__left__right ul {
     list-style: none;
@@ -349,7 +373,324 @@ a {
 }
 
 
+/* Tablet Devices */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    body {
+        /* background-color: red; */
+    }
+
+    #header {
+        padding-bottom: 5rem;
+    }
+
+    .large__screen__nav {
+        width: 85%;
+    }
+
+    .__header__body__container {
+        width: 85%;
+        flex-direction: column-reverse;
+    }
+
+        
+    .__header__left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .__header__left h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .__header__left p {
+        line-height: 1.6rem;
+        text-align: center;
+    }
+
+    .__header__right {
+        width: 50%;
+        height: 82vh;
+        /* background-color: red; */
+    }
+
+
+    .bg__intro__desktop {
+        width: 80.8rem;
+        top: -12.5rem;
+        right: 9rem;
+    }
+
+    .image__mockups {
+        width: 48rem;
+        top: -3rem;
+        right: -2rem;
+    }
+
+    .__articles__container, .easybank__container, .footer__container {
+        width: 85%;
+    }
+
+    .__cards, .__articles {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 5rem;
+        gap: 3rem;
+    }
+
+    .__card, .__article, .__article__img {
+        width: 100%;
+    }
+
+    .__left__left, .__footer__nav__1 {
+        margin-right: 4rem;
+    }
+
+}
+
+
 
 /* Smaller Devices */
-@media only screen and (min-width: 768px) {}
+@media only screen and (max-width: 768px) {
+    
+    #header {
+        width: 100%;
+        min-height: 50vh;
+        /* background-color: red; */
+        overflow-x: hidden;
+        padding-bottom: 4rem;
+    }
+
+    .header__body {
+        margin-top: 0;
+        /* background-color: yellow; */
+    }
+
+    .large__screen__nav {
+        display: none;
+    }
+
+    .small__screen__nav {
+        display: block;
+        position: relative;
+    }
+
+    .small__screen__nav__container {
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0 15px 0;
+    }
+
+    .small__screen__nav__container .app__logo img {
+        width: 8rem;
+    }
+
+    .menu__bar {
+        font-size: 1.05rem;
+    }
+
+    .small__screen__nav__links {
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 88%;
+        background-color: var(--White);
+        box-shadow: 0 1rem 2rem rgba(31, 31, 31, 0.2);
+        border-radius: 10px;
+        list-style: none;
+        padding: 2rem;
+        text-align: center;
+        transition: all .3s ease-in;
+        display: none;
+    }
+
+    .small__screen__nav__links li {
+        margin: 20px 0;
+    }
+
+    .small__screen__nav__links a {
+        color: var(--Dark-Blue);
+        font-size: 1.08rem;
+        font-weight: var(--font-normal);
+    }
+
+    .small__screen__nav__links.set__visible{
+        display: block;
+    }
+
+    .__header__body__container {
+        width: 85%;
+        flex-direction: column-reverse;
+    }
+
+    .__header__left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+    .__header__left h1 {
+        font-size: 2.3rem;
+        text-align: center;
+    }
+
+    .__header__left p {
+        line-height: 1.5rem;
+        /* text-align: center; */
+        font-size: 0.9rem;
+    }
+
+    .__header__right {
+        min-width: 28rem;
+        height: 25rem;
+        /* background-color: red; */
+    }
+
+
+    .bg__intro__desktop {
+        display: none;
+    }
+
+
+
+    .bg__intro__mobile {
+        display: block;
+        width: 100%;
+        position: relative;
+        top: -3.9rem;
+        right: 0;
+        left: -1rem;
+        z-index: 1;
+    }
+
+    .image__mockups {
+        width: 21rem;
+        top: -3.5rem;
+        right: 0;
+        left: 0;
+        margin: auto;
+        z-index: 2;
+    }
+
+    .why__easybank {
+        padding: 3rem 0 2rem 0;
+    }
+
+    .__heading h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+        
+    .why__easybank .__heading p {
+        width: 100%;
+        font-size: 0.85rem;
+        line-height: 1.55rem;
+        margin: 1.5rem 0 5px 0;
+        text-align: center;
+    }
+
+    .__cards {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .__card {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 2rem;
+        /* background-color: red; */
+    }
+
+
+    .__icon {
+        width: 3.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+
+    .__card h2 {
+        margin: 20px 0;
+        font-size: 1.35rem;
+    }
+
+    .__card p {
+        line-height: 1.4rem;
+        font-size: 0.9rem;
+    }
+
+    .articles {
+        padding: 3rem 0;
+    }
+
+    .__articles__container {
+        width: 85%;
+    }
+
+    .__articles {
+        flex-direction: column;
+    }
+
+    .__article {
+        margin-bottom: 25px;
+    }
+
+    .__article, .__article__img {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 1.05rem;
+    }
+
+    .__content {
+        font-size: 0.88rem;
+    }
+
+    .footer__container {
+        width: 85%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left__footer, .__left__right {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .__left__left, .__footer__nav__1 {
+        margin-right: 0;
+    }
+
+    .footer__logo {
+        width: 8rem;
+    }
+
+    .__social__links_icons {
+        margin: 1.5rem 0;
+    }
+
+    .__social__links_icons a{
+        margin-right: 15px;
+        font-size: 1.25rem;
+    }
+
+    .footer__cta__btn {
+        margin-top: 1rem;
+    }
+}
 
